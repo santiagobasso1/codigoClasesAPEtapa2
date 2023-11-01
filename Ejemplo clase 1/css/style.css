@@ -1,0 +1,40 @@
+/* Selector universal, se aplica a todo el documento */
+*{
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prioridad: TOP */
+/* El selector de ID tiene prioridad sobre el de clases, por lo que si cambiamos de color luego con un selector de clases no se aplicará este cambio porque lo hicimos con uno de id antes */
+#idH2Seccion1{
+    color: red;
+}
+
+/* 2 */
+/* Selector de clases */
+/* Si aplicamos varios estilos del mismo nivel de prioridad, quedará el ultimo aplicado */
+.classH2Seccion1{
+    color: blue;
+}
+
+.classH2Seccion1_dos{
+    color: purple;
+}
+
+/* Esto cuenta al mismo nivel que los selectores de clases! */
+input[type="text"] {
+    background-color: yellow;
+}
+
+input[type="email"] {
+    background-color: brown;
+}
+
+/* 3 */
+/* El selector por elementos se aplica con menor prioridad que los demás, es "pisado" por los otros */
+h2{
+    color: green;
+}
+
+
