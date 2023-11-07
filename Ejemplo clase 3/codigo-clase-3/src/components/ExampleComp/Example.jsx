@@ -14,10 +14,11 @@ export default function Example() {
   return (
     <>
       {nombreUsuario ? (
-        <Example2 nombre={nombreUsuario} />
+        <Example2 dni="05040114" apellido={"Basso"} nombre={nombreUsuario} />
       ) : (
         <button onClick={solicitarNombre}>Ingresar Nombre</button>
       )}
     </>
   );
 }
+
