@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Mensaje from './Mensaje';
+import Contador from '../Contador/Contador';
 
 const CicloVida = () => {
   const [count, setCount] = useState(0);
-  const [spawnElement,setSpawnElement] = useState(false)
-  const handleSpawnElement = ()=>{
-    if (spawnElement===true){
+
+
+  const [spawnElement, setSpawnElement] = useState(false)
+
+  const handleSpawnElement = () => {
+    if (spawnElement) {
       setSpawnElement(false)
-    }else{
+    } else {
       setSpawnElement(true)
     }
   }
@@ -15,16 +19,17 @@ const CicloVida = () => {
 
   useEffect(() => {
     console.log('Count se actualizó:', count);
-    // Lógica adicional que queremos ejecutar cuando el estado 'count' se actualice (recordemos que si count se actualiza ya que es un estado, el comp tambien)
-  }, [count]); // El efecto se ejecutará cuando 'count' cambie
+  }, [count]);
+
 
   return (
     <div>
-      <h2>Componente con Ciclos de Vida</h2>
+      <h1>Componente con Ciclos de Vida</h1>
       <p>Contador: {count}</p>
       <button onClick={() => setCount(count + 1)}>Incrementar</button>
       <button onClick={handleSpawnElement}>Aparecer H1</button>
-      {spawnElement ? <Mensaje/> : ""}
+      {spawnElement ? <Contador /> : ""}
+      
     </div>
   );
 };
