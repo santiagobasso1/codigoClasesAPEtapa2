@@ -1,10 +1,9 @@
 import React from 'react';
 //onAddOption es una función pasada por props (Callback)
-const Menu = ({manejarCambioEstado}) => {
-  
-
+const Menu = ({onAddOption}) => {
+    //Dentro de handleAddOption llamamos a nuestro callback (manejar el agregar opcion)
   const handleAddOption = () => {
-    manejarCambioEstado('Nueva Opción');
+    onAddOption('Nueva Opción');
   };
 
   return (

@@ -7,6 +7,7 @@ function App() {
     <>
       <CicloVida/>
       <Jueguito/>
+      <Contador/>
     </>
   )
 }
