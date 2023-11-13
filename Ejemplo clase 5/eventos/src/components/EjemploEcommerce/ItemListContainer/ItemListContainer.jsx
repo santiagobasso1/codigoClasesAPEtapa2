@@ -8,6 +8,8 @@ const ItemListContainer = () => {
   //la linea de "setProducts(data)" se ejecutaría infinitamente
   useEffect(() => {
     //Creamos un fetch simple para traer los datos de una api de prueba gratuita (recordemos que es una función asincrona, por eso el async y los await)
+    //En caso que no funcione fakestorageapi uso esta: 
+    //https://6551e4245c69a7790329376d.mockapi.io/ejemploProductos
     const fetchData = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');

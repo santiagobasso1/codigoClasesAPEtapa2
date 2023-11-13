@@ -5,6 +5,9 @@ const EventosReact = () => {
     //El state dragging lo utilizaremos solo para dar un estilo en este caso, si estamos moviendo un elemento, que se ponga mas oscuro mientras lo hacemos como hacen todas las paginas
     const [dragging, setDragging] = useState(false);
 
+    const [touchPosition, setTouchPosition] = useState({ x: 0, y: 0 });
+
+
     const handleChange = (event) => {
         setMensaje(event.target.value);
     };
@@ -36,6 +39,22 @@ const EventosReact = () => {
         event.preventDefault();
     };
 
+
+
+    const handleTouchStart = (e) => {
+        // Obtener la posición inicial del toque
+        const touch = e.touches[0];
+        setTouchPosition({ x: touch.clientX, y: touch.clientY });
+    };
+
+    const handleTouchMove = (e) => {
+        const touch = e.touches[0];
+        setTouchPosition({ x: touch.clientX, y: touch.clientY });
+    };
+
+    const handleTouchEnd = () => {
+        console.log("Dejaste de tocar")
+    };
 
     return (
 
@@ -79,6 +98,19 @@ const EventosReact = () => {
                 >
                     Drag me!
                 </div>
+            </div>
+            <div
+                /* Se dispara cuando un dedo toca la pantalla. */
+                onTouchStart={handleTouchStart}
+                /*  Se dispara cuando un dedo se mueve a lo largo de la pantalla después de haber iniciado el toque. */
+                onTouchMove={handleTouchMove}
+                /*  Se dispara cuando un dedo se levanta de la pantalla. */
+                onTouchEnd={handleTouchEnd}
+                style={{ border: '1px solid #ccc', padding: '20px', position: 'relative' }}
+            >
+                <p>Posición del toque:</p>
+                <p>X: {touchPosition.x}</p>
+                <p>Y: {touchPosition.y}</p>
             </div>
         </div>
 
