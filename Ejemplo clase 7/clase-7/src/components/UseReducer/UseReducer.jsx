@@ -3,25 +3,44 @@ import { useReducer } from 'react'
 export default function UseReducer() {
     const funcionParaReducer = (state, action) => {
         switch (action.type) {
-            case 'sumar 1':
+            case 'sumar':
                 return { count: state.count + 1 }
-            case 'restar 1':
+            case 'restar':
                 return { count: state.count - 1 }
+            case 'mult':
+                return { count: state.count * 2 }
+            case 'div':
+                return { count: state.count / 2 }
             default:
-                alert("Error")
+                throw new Error()
         }
     }
-    const [state, dispatch] = useReducer(funcionParaReducer, { count: 0 })
-    return (
-        <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            Contador: {state.count}
-            <button onClick={() => dispatch({ type: 'sumar 1' })}>+</button>
-            <button onClick={() => dispatch({ type: 'restar 1' })}>-</button>
 
+
+    const [state, dispatch] = useReducer(funcionParaReducer, { count: 0 })
+
+
+
+
+    return (
+        <div className='fondo'>
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+            <p>Contador: {state.count}</p>
+            <button onClick={() => dispatch({ type: 'sumar' })}>+</button>
+            <button onClick={() => dispatch({ type: 'restar' })}>-</button>
+            <button onClick={() => dispatch({ type: 'mult' })}>*</button>
+            <button onClick={() => dispatch({ type: 'div' })}>/</button>
+
+
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     )
 }

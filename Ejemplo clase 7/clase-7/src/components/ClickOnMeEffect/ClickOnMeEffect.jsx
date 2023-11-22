@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react'
 export default function ClickOnMeEffect() {
     const [contador, setContador] = useState(0);
 
-    //Al no ponerle nada, cada que se recargue la pagina se vuelve a ejecutar el useEffect
     useEffect(() => {
-        document.title=`Clickeaste ${contador} veces`
-    },[contador]);
+        document.title = `Clickeaste ${contador} veces`
+    }, [contador]);
 
 
     return (
